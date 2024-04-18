@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "kajilab"
+version = "0.1.0"
+description = ""
+authors = ["wappon28dev <wappon_28_dev@ruru.be>"]
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+ruff = "^0.3.7"
+
+[tool.poetry.group.0411-0416.dependencies]
+whitecanvas = { extras = ["pyqtgraph"], version = "^0.2.6" }
+pyside6 = "^6.7.0"
+pandas = "^2.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["ALL"]
+ignore = [
+  "G004", # `logging-f-string` : loggingでf-stringを使いたいので無視する
+  # "PD901",   #すでに`df`という変数をいろんなところで使っているため
+  # "PD002",   #すでにpandasで`inplace=True`はいろんなところで使っているため
+  "RUF001", # 全角記号など`ambiguous unicode character`も使いたいため
+  "RUF002", # 全角記号など`ambiguous unicode character`も使いたいため
+  "RUF003", # 全角記号など`ambiguous unicode character`も使いたいため
+  "ANN101", # missing-type-self: 引数selfには型ヒントは付けていないため
+  "ANN102", # missing-type-cls: 引数clsには型ヒントは付けていないため
+  "ANN002", # missing-type-args
+  "ANN003", # missing-type-kwargs
+  "ERA",    # : 役立つこともあるが、コメントアウトしていないコードも警告されるので無視する
+  "RSE",    # flake8-raise
+  "D",      # pydocstyle, Docstringを中途半端にしか書いていないので、除外する
+  "C90",    # mccabe 
+  "T20",    # flake8-print
+  "SLF",    # flake8-self
+  "BLE",    # flake8-blind-except
+  "FBT",    # flake8-boolean-trap
+  "TRY",    # tryceratops 
+  "COM",    # flake8-commas 
+  "S",      # flake8-bandit
+  "EM",     # flake8-errmsg
+  "EXE",    # flake8-executable
+  "ICN",    # flake8-import-conventions
+  "RET",    # flake8-return
+  "SIM",    # flake8-simplify
+  "TCH",    # flake8-type-checking
+  "PTH",    # pathlibを使わないコードが多いので、除外する
+  "ISC",    #flake8-implicit-str-concat
+  "N",      # pep8-naming
+  "PT",     # flake8-pytest-style
+  "INP001", # __init__.py
+  "TD002",  # TODO comment style
+  "TD003",  # TODO comment url
+  "FA102",  # __future__ import
+]
