@@ -1,3 +1,4 @@
+# -- OS generated files --
 # General
 .DS_Store
 .AppleDouble
@@ -50,3 +51,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+node_modules/

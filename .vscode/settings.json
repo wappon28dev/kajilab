@@ -1,4 +1,4 @@
 {
-  "cSpell.words": ["cumsum", "pyqtgraph", "whitecanvas"],
+  "cSpell.words": ["cumsum", "kajilab", "pyqtgraph", "textlint", "whitecanvas"],
   "python.defaultInterpreterPath": "${workspaceFolder}/weekly/.venv/bin/python"
 }
