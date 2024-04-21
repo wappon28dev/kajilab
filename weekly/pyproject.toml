@@ -10,7 +10,8 @@ packages = [{ include = "src" }]
 python = ">=3.11,<3.13"
 ruff = "^0.3.7"
 
-[tool.poetry.group.0411-0416.dependencies]
+[tool.poetry.group.b1-0416.dependencies]
+[tool.poetry.group.b1-0423.dependencies]
 whitecanvas = { extras = ["pyqtgraph"], version = "^0.2.6" }
 pyside6 = "^6.7.0"
 pandas = "^2.2.2"

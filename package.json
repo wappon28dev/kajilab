@@ -2,7 +2,9 @@
   "name": "kajilab",
   "type": "module",
   "scripts": {
-    "lint": "textlint ."
+    "lint": "textlint .",
+    ":weekly": "cd weekly &&",
+    ":w": "bun run :weekly"
   },
   "devDependencies": {
     "@types/bun": "latest"
