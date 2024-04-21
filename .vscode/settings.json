@@ -1,7 +1,9 @@
 {
   "cSpell.words": [
     "cumsum",
+    "dtype",
     "kajilab",
+    "ndarray",
     "phyphox",
     "pyqtgraph",
     "textlint",

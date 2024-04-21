@@ -127,3 +127,13 @@ canvas.show(block=True)
     - Z 軸 (ベッドからスマホまでの高さ) が自由落下っぽくなっている
 
 ## 進路関係
+
+## appendix
+
+使用したコードは以下の手順で実行できます:
+
+```sh
+cd weekly
+poetry install --with b1-0423
+poetry run python ./src/b1/0423/main.py
+```
