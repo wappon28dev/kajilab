@@ -26,17 +26,19 @@
 1. 加速度を単純に積分しても正しい行動が取れないらしい
 1. 動物行動の事例をまとめる
 
+皆さん既にご存知の箇所が多いかもですが, 確認ということで間違いあればぜひご指摘ください……
+
 ### 累積和
 
 累積和とは, 配列の任意の空間の総和を求めるためのアルゴリズムのこと[^1].  
 次の図[^2] のように, ある区間の総和を求める際に, その区間の始点から終点までの値を足し合わせることで求めることができる.
 (AtCoder の記事しか出てこない)
 
-<img src="https://prtechblogfd-crhzb5g6hkhqafdm.z01.azurefd.net/drupalimages/%5Bdate%3Acustom%3AY%5D/%5Bdate%3Acustom%3Am%5D/%5Bdate%3Acustom%3Ad%5D/articleimages/2023-12-14-can-you-solve-this-a-002.gif" alt="累積和の説明図" height="auto" width="700px">
+<img src="https://prtechblogfd-crhzb5g6hkhqafdm.z01.azurefd.net/drupalimages/%5Bdate%3Acustom%3AY%5D/%5Bdate%3Acustom%3Am%5D/%5Bdate%3Acustom%3Ad%5D/articleimages/2023-12-14-can-you-solve-this-a-002.gif" alt="累積和の説明図" height="auto" width="700px" />
 
 どこかで見たことあるような……　長い足し算のときに知らず知らず使っていたよ (驚愕).
-直近だと, 論理回路の IRAT の進数変換の問題で $2^0 + 2^2 + 2^3 + 2^4 + \cdots$ とかの下に書いていたよ:
-<img width="1362" alt="知らず知らず使われる累積和" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/ea0f1281-1a32-48ec-9041-fb9f367051a9.png">
+直近だと, 論理回路の IRAT の進数変換の問題で $2^0 + 2^2 + 2^4 + 2^8 + \cdots$ とかの下に書いていたよ:
+<img width="1362" alt="知らず知らず使われる累積和" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/ea0f1281-1a32-48ec-9041-fb9f367051a9.png" />
 
 前回は加速度を積分して変位を求めるときに, 累積和を 2 回取っていたが, このままでは値が大きくなりすぎてしまう. 加速度データの累積和に時間間隔を掛けてあげることで正しい値を得ることができるはず.
 
@@ -94,7 +96,7 @@ data = read_csv(assets_dir_0416 / "1.csv")
 f = calc_freq(data)
 ```
 
-いいですね！　 200.5 Hz でサンプリングされていることが分かった.
+ｲｲﾈ!　約 200.5 Hz でサンプリングされていることが分かった.
 加速度データの累積和を算出するときにこいつの逆数 (時間間隔 $dt$ s) を掛けてあげる.
 
 ```diff
@@ -113,15 +115,15 @@ show_graph(t, dx, dy, dz)
 
   (左: 累積和を用いたもの　右: 適切な時間間隔を掛けた累積和を用いたもの)
 
-  <img width="400px" alt="累積和を使った X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/16/163736/d3b6c54d-ecd8-4247-be2a-fbcd5d483ec4.svg">
-  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/a69c0f55-f282-48e7-9d18-1ba4753c95ed.svg">
+  <img width="400px" alt="累積和を使った X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/16/163736/d3b6c54d-ecd8-4247-be2a-fbcd5d483ec4.svg" />
+  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/a69c0f55-f282-48e7-9d18-1ba4753c95ed.svg" />
 
 - 斜方投射
 
   (左: 累積和を用いたもの　右: 適切な時間間隔を掛けた累積和を用いたもの)
 
-  <img width="400px" alt="累積和を使った X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/16/163736/92ef4ad1-78a5-424c-836b-cbe3c40f1729.svg">
-  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/201939f7-eca6-4e5c-9183-4926a75b89a5.svg">
+  <img width="400px" alt="累積和を使った X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/16/163736/92ef4ad1-78a5-424c-836b-cbe3c40f1729.svg" />
+  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/201939f7-eca6-4e5c-9183-4926a75b89a5.svg" />
 
 どちらもグラフの形こそ変わっていないが, Z 軸の値がそれぞれ −35000 m → −1.0 m, 40000 m → 1.0 m に適切に変動していることが分かる.
 
@@ -131,9 +133,12 @@ show_graph(t, dx, dy, dz)
 
 <img width="700px" alt="image.png (191.1 kB)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/94980613-e98e-4b85-a745-0f903d21e984.png">
 
-公式通りに実装してみた:
+算出に必要な時間間隔 $dt$ は, 先ほど求めたサンプリングレートを使う.  
+台形積分を公式通りに実装してみた:
 
 ```py
+float1DArr = ndarray[float, dtype[float64]]
+
 def integrate(
     data: float1DArr,
     dt: float,
@@ -158,24 +163,53 @@ show_graph(t, dx, dy, dz)
 
   (左: 適切な時間間隔を掛けた累積和を用いたもの　右: 台形積分を用いたもの)
 
-  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/a69c0f55-f282-48e7-9d18-1ba4753c95ed.svg">
-  <img width="400px" alt="台形積分を用いた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/34c3b347-8348-4b47-b760-5d958ff0967b.svg">
+  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/a69c0f55-f282-48e7-9d18-1ba4753c95ed.svg" />
+  <img width="400px" alt="台形積分を用いた X, Y, Z 軸の加速度の変化 (自由落下)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/34c3b347-8348-4b47-b760-5d958ff0967b.svg" />
 
 - 斜方投射
 
   (左: 適切な時間間隔を掛けた累積和を用いたもの　右: 台形積分を用いたもの)
 
-  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/201939f7-eca6-4e5c-9183-4926a75b89a5.svg">
-  <img width="400px" alt="台形積分を用いた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/e4d5a652-4834-4260-b393-e4c21f59225c.svg">
+  <img width="400px" alt="累積和に適切な時間間隔を掛けた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/201939f7-eca6-4e5c-9183-4926a75b89a5.svg" />
+  <img width="400px" alt="台形積分を用いた X, Y, Z 軸の加速度の変化 (斜方投射)" src="https://img.esa.io/uploads/production/attachments/13979/2024/04/22/163736/e4d5a652-4834-4260-b393-e4c21f59225c.svg" />
 
 適切な時間間隔を掛けた累積和を用いたものでも, 台形積分を用いたものでも, 単位と数値がぴったりになることが分かった！　スッキリ！
 
-## appendix
+ほかにも, 計測時にスマホが完全に水平になっているとは限らない.
+このサイト[^4] によると, その分の傾きを考慮して計算をしたり, ほかの軸を考慮して補正値を求めたりが必要になることもあるので, 今後の計測.
+今回は適当にスマホを感覚で適当に投げたので, このデータの精度について確かめられないが……
+
+## まとめ
+
+前回の疑問点を晴らすためにかなり時間を要した.　楽しいけど苦しい.　来週以降は……
+
+- 動物センシングの事例を調査
+  - どのターゲットにどんな情報を見せるかを決める (or その事例)
+  - 自身がやってきた動物行動のモニタリングとダイジェスト化とどう統合するか考える
+- U-22 プログラミングコンテストに向けて, 少し面白い構想を思いついたのでそれを進捗として進めるかもしれない
+  - 梶研内での個人活動かシス研内の個人活動とするかはまだ決める
+  - 後日, 梶先生と相談
+
+<!--
+- ライセンスツリー
+  → ハッシュ or license.yaml でライセンス表記を生成
+  → プログラミング界隈のライセンスの明文化は良いこと
+  → VRChat アバターやキャラクター, 絵師さんなど色んな界隈のライセンス表記にはブレがある → ソフトウェアとの兼ね合いが難しいことも
+   - AI 学習問題やキャラクターイメージの毀損などを防ぐために GUI ⇔ ライセンス文 を作る
+   - それ用の言語を作っても面白いかも
+   - ライセンスツリーを作って dependency を測定 → 制作者への感謝の気持ち
+   - 制作者が GUI でライセンス文を生成 → ライセンス文のハッシュが一致したら簡易版を表示できる
+   - ライセンス文–YAML–制作物–ユーザー認証で署名 → ブロックチェーンにしたら面白いかも
+   - リポジトリは Google Drive や One Drive など一元化をせず分散型で管理
+-->
+
+## Appendix
 
 使用したコードは以下の手順で実行できます:
 
 ```sh
-cd weekly
+git clone https://github.com/wappon28dev/kajilab --depth 1
+cd ./kajilab/weekly
 poetry install --with b1-0423
 poetry run python ./src/b1/0423/main.py
 ```
@@ -183,8 +217,4 @@ poetry run python ./src/b1/0423/main.py
 [^1]: [アルゴリズム（Ruby）累積和の解説 - じゃいごテック ↗](https://jaigotec.com/algorithm_prefix_sum/#i)
 [^2]: [これ、解けますか？【累積和】- tech blog ↗](https://tech-blog.cloud-config.jp/2023-12-14-can-you-solve-this-a#%E7%B4%AF%E7%A9%8D%E5%92%8C%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%AB)
 [^3]: [物理教育のための携帯機器の加速度センサーを用いた運動の測定実験 - KIT Progress ↗](https://kitir.kanazawa-it.ac.jp/infolib/cont/01/G0000002repository/000/000/000000240.pdf)
-
-ref:
-
-- <https://www.tsukutsuku-lab.com/%E3%82%B9%E3%83%9E%E3%83%9B%E5%86%85%E8%94%B5%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%81%A7%E5%AE%9F%E9%A8%93/%E6%9C%AC%E5%BD%93%E3%81%AB%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%82%92%E8%A8%88%E6%B8%AC%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%8B/>
-- <https://www.tsukutsuku-lab.com/%E3%82%B9%E3%83%9E%E3%83%9B%E5%86%85%E8%94%B5%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%81%A7%E5%AE%9F%E9%A8%93/%E8%87%AA%E7%94%B1%E8%90%BD%E4%B8%8B/>
+[^4]: [本当に加速度を計測できているのか？ - ツクツクボウシの自由研究 ↗︎](https://www.tsukutsuku-lab.com/%E3%82%B9%E3%83%9E%E3%83%9B%E5%86%85%E8%94%B5%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%81%A7%E5%AE%9F%E9%A8%93/%E6%9C%AC%E5%BD%93%E3%81%AB%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%82%92%E8%A8%88%E6%B8%AC%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%8B/)

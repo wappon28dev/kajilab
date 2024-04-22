@@ -128,12 +128,13 @@ canvas.show(block=True)
 
 ## 進路関係
 
-## appendix
+## Appendix
 
 使用したコードは以下の手順で実行できます:
 
 ```sh
-cd weekly
+git clone https://github.com/wappon28dev/kajilab
+cd kajilab/weekly
 poetry install --with b1-0423
 poetry run python ./src/b1/0423/main.py
 ```
