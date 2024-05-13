@@ -130,7 +130,7 @@ canvas.show(block=True)
 
 ## Appendix
 
-使用したコードは以下の手順で実行できます:
+使用したコードは以下の手順で実行できる:
 
 ```sh
 git clone https://github.com/wappon28dev/kajilab

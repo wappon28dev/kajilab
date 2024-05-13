@@ -1,7 +1,12 @@
 {
   "plugins": {},
   "filters": {
-    "comments": true
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "/\\$\\$[\\s\\S]*?\\$\\$/m"
+      ]
+    }
   },
   "rules": {
     "preset-ja-technical-writing": {
@@ -11,7 +16,6 @@
           ".",
           ",",
           ":",
-          "$$",
           "……"
         ]
       },
@@ -37,6 +41,12 @@
       "ja-space-between-half-and-full-width": {
         "space": "always"
       }
+    },
+    "no-mix-dearu-desumasu": {
+      "preferInHeader": "である",
+      "preferInBody": "である",
+      "preferInList": "である",
+      "strict": true
     },
     "@textlint-ja/no-synonyms": true,
     "spellcheck-tech-word": true

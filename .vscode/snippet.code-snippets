@@ -1,0 +1,7 @@
+{
+  "Ignore text-lint block": {
+    "prefix": "@ignore",
+    "body": ["<!-- textlint-disable $1 -->", "$0", "<!-- textlint-enable -->"],
+    "description": ""
+  }
+}
